@@ -63,7 +63,6 @@ def feature_construct(city, model_name, friends, walk_len=100, walk_times=20, nu
 
     pair = pair_construct(emb.uid.unique(), friends)
 
-
     for i in range(len(pair)):
         u1 = pair.ix[i, 'u1']
         u2 = pair.ix[i, 'u2']
