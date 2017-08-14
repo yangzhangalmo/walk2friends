@@ -1,5 +1,4 @@
 import os
-import itertools
 
 import pandas as pd
 import numpy as np
@@ -19,10 +18,12 @@ def pair_construct(u_list, friends):
     pair_p = friends.ix[(friends.u1.isin(u_list)) &\
                         (friends.u2.isin(u_list))]
 
-    u_list = np.sort(u_list)
-    
-    pair_n = list(itertools.combinations(u_list, 2))
-    pair_n = pd.DataFrame(pair_n, columns=['u1', 'u2'])
+    pair_n = pd.DataFrame(np.random.choice(u_list, 3*pair_p.shape[0]),\
+                          columns=['u1'])
+    pair_n['u2'] = np.random.choice(u_list, 3*pair_p.shape[0])
+
+    pair_n = pair_n.loc[pair_n.u1!=pair_n.u2]
+    pair_n = pair_n.loc[pair_n.u1<pair_n.u2].reset_index(drop=True)
 
     # delete friends inside
     pair_n = pair_n.loc[~pair_n.set_index(list(pair_n.columns)).index.isin(pair_p.set_index(list(pair_p.columns)).index)]
