@@ -50,9 +50,9 @@ def feature_construct(city, model_name, friends, walk_len=100, walk_times=20, nu
     Returns:
     '''
 
-    if os.path.exists('dataset/'+city+'/feature/'+'_'+city+model_name+'_'+\
+    if os.path.exists('dataset/'+city+'/feature/'+city+'_'+model_name+'_'+\
                       str(int(walk_len))+'_'+str(int(walk_times))+'_'+str(int(num_features))+'.feature'):
-        os.remove('dataset/'+city+'/feature/'+city+model_name+'_'+\
+        os.remove('dataset/'+city+'/feature/'+city+'_'+model_name+'_'+\
                   str(int(walk_len))+'_'+str(int(walk_times))+'_'+str(int(num_features))+'.feature')
 
     emb = pd.read_csv('dataset/'+city+'/emb/'+city+'_'+model_name+'_'+\
