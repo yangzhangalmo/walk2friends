@@ -23,8 +23,8 @@ def pair_construct(u_list, friends):
     pair_n['u2'] = np.random.choice(u_list, 3*pair_p.shape[0])
 
     pair_n = pair_n.loc[pair_n.u1!=pair_n.u2]
-    pair_n = pair_n.loc[pair_n.u1<pair_n.u2].reset_index(drop=True)
-
+    pair_n = pair_n.loc[pair_n.u1<pair_n.u2]
+    pair_n = pair_n.drop_duplicates().reset_index(drop=True)
     # delete friends inside
     pair_n = pair_n.loc[~pair_n.set_index(list(pair_n.columns)).index.isin(pair_p.set_index(list(pair_p.columns)).index)]
     pair_n = pair_n.ix[np.random.permutation(pair_n.index)].reset_index(drop=True)
