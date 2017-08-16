@@ -11,7 +11,6 @@ This repository provides a reference implementation of *walk2friends* as describ
 To run inference attack on the New York data with each user having at least 20 check-ins, exucte the following command: <br/>``python src/main_attack.py ny 20``
 
 ## Requirements
-
 * pandas
 * numpy
 * scipy
@@ -31,3 +30,6 @@ If you find walk2friends useful in your research, please cite the following pape
 >  year = {2016},<br>
 >  publisher = {ACM}<br>
 >  }<br>
+
+## Miscellaneous
+If you have any questions about the code and/or the algorithm, please send an email to <yang.zhang@cispa.saarland>.
