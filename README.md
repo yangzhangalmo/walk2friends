@@ -23,10 +23,9 @@ It is recommended to install Anaconda, a python data science distribution, which
 * joblib
 
 ## Citing
-If you find walk2friends useful in your research, please cite the following paper:
-
-@inproceedings{node2vec-kdd2016,
-  author = {Grover, Aditya and Leskovec, Jure},
+If you find walk2friends useful in your research, please cite the following paper::
+@inproceedings{BHPZ17,
+  author = {Michael Backes and Mathias Humbert and Jun Pang and Yang Zhang},
   title = {node2vec: Scalable Feature Learning for Networks},
   booktitle = {Proc.\ 24th ACM SIGSAC Conference on Computer and Communications Security (CCS)},
   year = {2016},
