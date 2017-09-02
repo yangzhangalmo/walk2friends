@@ -8,9 +8,9 @@ This repository provides a reference implementation of *walk2friends* as describ
 ## Basic Usage
 
 ### Example
-To run our social link inference attack on the New York data with each user having at least 20 check-ins, please exucte the following command: 
+To run our social link inference attack on the New York data with each user having at least 20 check-ins, please exucte the following command in folder src/: 
 
-<br/>``python src/main_attack.py ny 20``
+<br/>``python main_attack.py ny 20``
 
 ## Requirements
 * pandas
