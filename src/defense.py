@@ -105,7 +105,7 @@ def para_replace(city, defense_name, checkin, ratio, step):
     '''
     # intialize
     pd.DataFrame([checkin.columns]).to_csv('dataset/'+city+'/defense/'+\
-                city+'_'+defense_name+'.checkin', index=False, header=None)
+                 city+'_'+defense_name+'.checkin', index=False, header=None)
     
     ul_graph, lu_graph = ul_graph_build(checkin, 'locid')
 
