@@ -29,7 +29,7 @@ If you find walk2friends useful in your research, please cite the following pape
 >     author = {Michael Backes and Mathias Humbert and Jun Pang and Yang Zhang},<br>
 >     title = {walk2friends: Inferring Social Links from Mobility Profiles.},<br>
 >     booktitle = {Proceedings of the 24th ACM SIGSAC Conference on Computer and Communications Security (CCS)},<br>
->     year = {2016},<br>
+>     year = {2017},<br>
 >     publisher = {ACM}<br>
 >  }<br>
 
