@@ -15,8 +15,8 @@ def pair_construct(u_list, friends):
         pair: u1, u2, label
     '''
     
-    pair_p = friends.ix[(friends.u1.isin(u_list)) &\
-                        (friends.u2.isin(u_list))]
+    pair_p = friends.loc[(friends.u1.isin(u_list))&\
+                        (friends.u2.isin(u_list))].copy()
 
     pair_n = pd.DataFrame(np.random.choice(u_list, 3*pair_p.shape[0]),\
                           columns=['u1'])
@@ -27,15 +27,15 @@ def pair_construct(u_list, friends):
     pair_n = pair_n.drop_duplicates().reset_index(drop=True)
     # delete friends inside
     pair_n = pair_n.loc[~pair_n.set_index(list(pair_n.columns)).index.isin(pair_p.set_index(list(pair_p.columns)).index)]
-    pair_n = pair_n.ix[np.random.permutation(pair_n.index)].reset_index(drop=True)
+    pair_n = pair_n.loc[np.random.permutation(pair_n.index)].reset_index(drop=True)
     
-    pair_n = pair_n.ix[0:1*pair_p.shape[0]-1, :]# down sampling
+    pair_n = pair_n.loc[0:1*pair_p.shape[0]-1, :]# down sampling
 
     pair_p['label'] = 1
     pair_n['label'] = 0
 
     pair = pd.concat([pair_p, pair_n], ignore_index=True)
-    pair = pair.reset_index(drop = True)
+    pair = pair.reset_index(drop=True)
 
     return pair
 
@@ -60,17 +60,17 @@ def feature_construct(city, model_name, friends, walk_len=100, walk_times=20, nu
                       str(int(walk_len))+'_'+str(int(walk_times))+'_'+str(int(num_features))+'.emb',\
                       header=None, skiprows=1, sep=' ')
     emb = emb.rename(columns={0:'uid'})# last column is user id
-    emb = emb.ix[emb.uid>0]# only take users, no loc_type, not necessary
+    emb = emb.loc[emb.uid>0]# only take users, no loc_type, not necessary
 
     pair = pair_construct(emb.uid.unique(), friends)
 
     for i in range(len(pair)):
-        u1 = pair.ix[i, 'u1']
-        u2 = pair.ix[i, 'u2']
-        label = pair.ix[i, 'label']
+        u1 = pair.loc[i, 'u1']
+        u2 = pair.loc[i, 'u2']
+        label = pair.loc[i, 'label']
 
-        u1_vector = emb.ix[emb.uid==u1, range(1, emb.shape[1])]
-        u2_vector = emb.ix[emb.uid==u2, range(1, emb.shape[1])]
+        u1_vector = emb.loc[emb.uid==u1, range(1, emb.shape[1])]
+        u2_vector = emb.loc[emb.uid==u2, range(1, emb.shape[1])]
 
         i_feature = pd.DataFrame([[u1, u2, label,\
                                    cosine(u1_vector, u2_vector),\
