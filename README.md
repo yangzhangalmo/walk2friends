@@ -45,6 +45,7 @@ If you find walk2friends useful in your research, please cite the following pape
 >     title = {walk2friends: Inferring Social Links from Mobility Profiles.},<br>
 >     booktitle = {Proceedings of the 24th ACM SIGSAC Conference on Computer and Communications Security (CCS)},<br>
 >     year = {2017},<br>
+>     pages = {1943-1957},<br>
 >     publisher = {ACM}<br>
 >  }<br>
 
