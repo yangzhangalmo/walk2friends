@@ -113,6 +113,7 @@ def emb_train(city, model_name, walk_len=100, walk_times=20, num_features=128):
     walks = walks.groupby(0).head(walk_times).values[:,:walk_len].tolist()
 
     emb = word2vec.Word2Vec(walks,\
+                            sg=1,\
                             workers=num_workers,\
                             size=num_features, min_count=min_word_count,\
                             window=context, sample=downsampling)
